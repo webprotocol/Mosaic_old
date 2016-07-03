@@ -3,9 +3,7 @@ package com.hybrid.actions;
 import com.gluonhq.particle.annotation.ParticleActions;
 import com.gluonhq.particle.application.ParticleApplication;
 import com.gluonhq.particle.view.ViewManager;
-import com.hybrid.Global;
 
-import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -15,29 +13,24 @@ import javax.inject.Inject;
 import org.controlsfx.control.action.ActionProxy;
 
 @ParticleActions
-public class MenuActions {
+public class MenuActions extends SpringMenuActions {
 
     @Inject ParticleApplication app;
     @Inject ViewManager viewManager;
     @Inject FXMLLoader fxmlLoader;	// Gluon FXMLLoader
     
-    public MenuActions() {
-    	Platform.runLater(new Runnable() {
-			
-			@Override
-			public void run() {
-				/*
-				 * Gluon FXMLLoader ==> Spring FXMLLoader 로 교체
-				 */
-				fxmlLoader.setControllerFactory(Global.ctx.getBean(FXMLLoader.class).getControllerFactory());
-			}
-		});
-	}
-
     @ActionProxy(text="Exit", accelerator="alt+F4")
     private void exit() {
         app.exit();
     }
+    
+    @ActionProxy(text="Injection Test")
+    private void inject() {
+    	System.out.println("Injection Test...");
+    	viewManager.switchView("inject");
+    }
+    
+    
     
     @ActionProxy(text="Pie Chart")
     private void piechart() {

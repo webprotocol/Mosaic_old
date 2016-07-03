@@ -13,24 +13,15 @@ import javax.inject.Inject;
 
 import org.springframework.context.ApplicationContext;
 
-public class MainApplication extends ParticleApplication {
+public class MainApplication extends SpringParticleApplication {
 
-	@Inject
-	ApplicationContext ctx;
-	
     public MainApplication() {
         super("Mosaic Application");
-        
-        Global.main = this;
-        Global.particle = getParticle();
-        
-        Global.sprintCtx = new SpringContext(this, () -> Arrays.asList(MainApplication.class.getPackage().getName()));
-        Global.sprintCtx.init();
     }
 
     @Override
     public void postInit(Scene scene) {
-    	Global.ctx = ctx;
+    	super.postInit(scene);
     	
     	setShowCloseConfirmation(false);
     	
@@ -38,10 +29,14 @@ public class MainApplication extends ParticleApplication {
 
         setTitle("Mosaic Application");
 
-        getParticle().buildMenu("File -> [exit]", 
+        getParticle().buildMenu("File -> [exit]",
+        						"Spring -> [inject]",
         						"Native -> [Chart -> [piechart, barchart, linechart, areachart], Widget -> [table, list] ]",
 		        				"Webapp -> [cube]",		
         						"Help -> [about]");
+        
+        
+        
         
         getParticle().getToolBarActions().addAll(0, actions("about", "exit", "---"));
         
