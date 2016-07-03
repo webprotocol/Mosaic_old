@@ -62,52 +62,60 @@ class SpringConfig  {
 		return new Service();
 	}
 	
-	@Bean
-	public Particle provideParticle() {
-		System.out.println("provideParticle()...");
-		return SpringParticleApplication.particle;
-	}
+//	@Bean
+//	public Particle provideParticle() {
+//		System.out.println("provideParticle()...");
+////		return SpringParticleApplication.particle;
+//		return null;
+//	}
 	
-	@Bean
-	public ParticleApplication provideParticleApplication() {
-		System.out.println("provideParticleApplication()...");
-		return SpringParticleApplication.main;
-	}
+//	@Bean
+//	public ParticleApplication provideParticleApplication() {
+//		System.out.println("provideParticleApplication()...");
+////		return SpringParticleApplication.main;
+//		return null;
+//	}
 	
-	@Bean
-	public ViewManager provideViewManager() {
-		System.out.println("provideViewManager()...");
-		return SpringParticleApplication.particle.getViewManager();
-	}
+//	@Bean
+//	public ViewManager provideViewManager() {
+//		System.out.println("provideViewManager()...");
+////		return SpringParticleApplication.particle.getViewManager();
+//		return null;
+//	}
 
-	@Bean
-	public FormManager provideFormManager() {
-		System.out.println("provideFormManager()...");
-		return SpringParticleApplication.particle.getFormManager();
-	}
+//	@Bean
+//	public FormManager provideFormManager() {
+//		System.out.println("provideFormManager()...");
+////		return SpringParticleApplication.particle.getFormManager();
+//		return null;
+//	}
 	
-	@Bean
-	public StateManager provideStateManager() {
-		System.out.println("provideStateManager()...");
-		return SpringParticleApplication.particle.getStateManager();
-	}	
+//	@Bean
+//	public StateManager provideStateManager() {
+//		System.out.println("provideStateManager()...");
+////		return SpringParticleApplication.particle.getStateManager();
+//		return null;
+//	}	
 
-	@Bean
-	public MenuBar provideMenuBar() {
-		System.out.println("provideMenuBar()...");
-		return SpringParticleApplication.menuBar;
-	}	
+//	@Bean
+//	public MenuBar provideMenuBar() {
+//		System.out.println("provideMenuBar()...");
+////		return SpringParticleApplication.menuBar;
+//		return null;
+//	}	
 
-	@Bean
-	public ToolBar provideToolBar() {
-		System.out.println("provideToolBar()...");
-		return SpringParticleApplication.toolBar;
-	}
+//	@Bean
+//	public ToolBar provideToolBar() {
+//		System.out.println("provideToolBar()...");
+////		return SpringParticleApplication.toolBar;
+//		return null;
+//	}
 
-	@Bean
-	public StatusBar provideStatusBar() {
-		System.out.println("provideStatusBar()...");
-		return SpringParticleApplication.statusBar;
-	}
+//	@Bean
+//	public StatusBar provideStatusBar() {
+//		System.out.println("provideStatusBar()...");
+////		return SpringParticleApplication.statusBar;
+//		return null;
+//	}
 
 }

@@ -8,6 +8,8 @@ import org.controlsfx.control.StatusBar;
 import org.controlsfx.control.action.Action;
 import org.controlsfx.control.action.ActionMap;
 import org.controlsfx.control.action.ActionProxy;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 
 import com.gluonhq.particle.application.Particle;
 import com.gluonhq.particle.application.ParticleApplication;
@@ -35,8 +37,11 @@ public class InjectController {
     @FXML
     ResourceBundle resources;
     
-    @Inject
+    @Autowired
     Service service;
+    
+    @Autowired
+    ApplicationContext ctx;
     
     public void initialize() {
     	
@@ -54,8 +59,9 @@ public class InjectController {
     		listResult.getItems().add("#####################################");
     		listResult.getItems().add("### " + tag);
     		listResult.getItems().add("#####################################");
-    		listResult.getItems().add("service.getText = " + service.getText());
-    		listResult.getItems().add("label.text = " + resources.getString("label.text"));
+    		listResult.getItems().add("service.getText = " + (service != null ? service.getText() : null));
+    		listResult.getItems().add("label.text = " + (resources != null ? resources.getString("label.text") : null));
+    		listResult.getItems().add("Application ctx = " + ctx);
     		listResult.getItems().add("ResourceBundle = " + resources);
     		listResult.getItems().add("ParticleApplication = " + app);
     		listResult.getItems().add("Particle = " + particle);
@@ -66,21 +72,23 @@ public class InjectController {
     		listResult.getItems().add("ToolBar = " + toolBar);
     		listResult.getItems().add("StatusBar = " + statusBar);
     		listResult.getItems().add("FXMLLoader = " + fxmlLoader);
+    		listResult.getItems().add("FXMLLoader.getControllerFactory() = " + (fxmlLoader != null ? fxmlLoader.getControllerFactory() : null));
     }
     
     
     /*
      * Life Cycle
      */
-    @Inject ParticleApplication app;
-    @Inject Particle particle;
-    @Inject ViewManager viewManager;
-    @Inject FormManager formManager;
-    @Inject StateManager stateManager;
-    @Inject MenuBar menuBar;
-    @Inject ToolBar toolBar;
-    @Inject StatusBar statusBar;
-    @Inject FXMLLoader fxmlLoader;
+    
+    @Autowired(required=false) @Inject ParticleApplication app;
+    @Autowired(required=false) @Inject Particle particle;
+    @Autowired(required=false) @Inject ViewManager viewManager;
+    @Autowired(required=false) @Inject FormManager formManager;
+    @Autowired(required=false) @Inject StateManager stateManager;
+    @Autowired(required=false) @Inject MenuBar menuBar;
+    @Autowired(required=false) @Inject ToolBar toolBar;
+    @Autowired(required=false) @Inject StatusBar statusBar;
+    @Autowired(required=false) @Inject FXMLLoader fxmlLoader;
     
     private Action actionHome;
     private Action menu1;

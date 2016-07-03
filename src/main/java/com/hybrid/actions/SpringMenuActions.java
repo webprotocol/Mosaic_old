@@ -26,9 +26,9 @@ public class SpringMenuActions {
 			@Override
 			public void run() {
 				
-				SpringParticleApplication.menuBar = menuBar;
-				SpringParticleApplication.toolBar = toolBar;
-				SpringParticleApplication.statusBar = statusBar;
+//				SpringParticleApplication.menuBar = menuBar;
+//				SpringParticleApplication.toolBar = toolBar;
+//				SpringParticleApplication.statusBar = statusBar;
 				
 				/*
 				 * Gluon FXMLLoader ==> Spring FXMLLoader 로 교체
