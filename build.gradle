@@ -12,4 +12,5 @@ mainClassName = 'com.hybrid.MainApplication'
 
 dependencies {
     compile 'com.gluonhq:particle:1.1.0'
+    compile group: 'com.gluonhq', name: 'ignite-spring', version: '1.0.0'
 }

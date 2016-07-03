@@ -3,7 +3,10 @@ package com.hybrid.actions;
 import com.gluonhq.particle.annotation.ParticleActions;
 import com.gluonhq.particle.application.ParticleApplication;
 import com.gluonhq.particle.view.ViewManager;
+import com.hybrid.Global;
 
+import javafx.application.Platform;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
@@ -15,8 +18,21 @@ import org.controlsfx.control.action.ActionProxy;
 public class MenuActions {
 
     @Inject ParticleApplication app;
-    
     @Inject ViewManager viewManager;
+    @Inject FXMLLoader fxmlLoader;	// Gluon FXMLLoader
+    
+    public MenuActions() {
+    	Platform.runLater(new Runnable() {
+			
+			@Override
+			public void run() {
+				/*
+				 * Gluon FXMLLoader ==> Spring FXMLLoader 로 교체
+				 */
+				fxmlLoader.setControllerFactory(Global.ctx.getBean(FXMLLoader.class).getControllerFactory());
+			}
+		});
+	}
 
     @ActionProxy(text="Exit", accelerator="alt+F4")
     private void exit() {
