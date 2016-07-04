@@ -5,6 +5,15 @@ public class Dept {
 	String dname;
 	String loc;
 	
+	@Override
+	public String toString() {
+		
+		return String.format("%5d %10s %10s", deptno, dname, loc);
+	}
+	
+	public Dept() {
+	}
+	
 	public Dept(Integer deptno, String dname, String loc) {
 		this.deptno = deptno;
 		this.dname = dname;

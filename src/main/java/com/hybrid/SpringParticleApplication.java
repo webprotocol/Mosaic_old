@@ -8,6 +8,7 @@ import org.controlsfx.control.StatusBar;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ImportResource;
 
 import com.gluonhq.ignite.spring.SpringContext;
 import com.gluonhq.particle.application.Particle;
@@ -51,6 +52,7 @@ public class SpringParticleApplication extends ParticleApplication {
 }
 
 @Configuration
+@ImportResource({"classpath:com/hybrid/Spring.xml"})
 class SpringConfig  {
 	public SpringConfig() {
 		System.out.println("SpringConfig()...");

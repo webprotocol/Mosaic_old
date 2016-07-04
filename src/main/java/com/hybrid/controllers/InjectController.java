@@ -10,12 +10,14 @@ import org.controlsfx.control.action.ActionMap;
 import org.controlsfx.control.action.ActionProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import com.gluonhq.particle.application.Particle;
 import com.gluonhq.particle.application.ParticleApplication;
 import com.gluonhq.particle.form.FormManager;
 import com.gluonhq.particle.state.StateManager;
 import com.gluonhq.particle.view.ViewManager;
+import com.hybrid.mapper.DeptMapper;
 import com.hybrid.service.Service;
 
 import javafx.collections.FXCollections;
@@ -43,6 +45,12 @@ public class InjectController {
     @Autowired
     ApplicationContext ctx;
     
+    @Autowired
+    DriverManagerDataSource dataSource;
+    
+    @Autowired
+    DeptMapper deptMapper;
+
     public void initialize() {
     	
 //    	ObservableList<String> items = FXCollections.observableArrayList ();
@@ -73,6 +81,15 @@ public class InjectController {
     		listResult.getItems().add("StatusBar = " + statusBar);
     		listResult.getItems().add("FXMLLoader = " + fxmlLoader);
     		listResult.getItems().add("FXMLLoader.getControllerFactory() = " + (fxmlLoader != null ? fxmlLoader.getControllerFactory() : null));
+    		
+    		listResult.getItems().add("url = " + dataSource.getUrl());
+    		listResult.getItems().add("user = " + dataSource.getUsername());
+    		listResult.getItems().add("password = " + dataSource.getPassword());
+    		
+    		listResult.getItems().add("deptMapper = " + deptMapper.getTest());
+    		listResult.getItems().add("deptMapper = " + deptMapper.getDept(10));
+    		listResult.getItems().add("deptMapper = " + deptMapper.getDept(20));
+    		listResult.getItems().add("deptMapper = " + deptMapper.getDept(30));
     }
     
     
