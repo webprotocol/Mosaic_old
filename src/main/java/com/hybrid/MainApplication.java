@@ -1,17 +1,8 @@
 package com.hybrid;
 
-import com.gluonhq.ignite.spring.SpringContext;
-import com.gluonhq.particle.application.ParticleApplication;
 import javafx.scene.Scene;
-import javafx.scene.control.MenuBar;
 
 import static org.controlsfx.control.action.ActionMap.actions;
-
-import java.util.Arrays;
-
-import javax.inject.Inject;
-
-import org.springframework.context.ApplicationContext;
 
 public class MainApplication extends SpringParticleApplication {
 
@@ -21,7 +12,6 @@ public class MainApplication extends SpringParticleApplication {
 
     @Override
     public void postInit(Scene scene) {
-    	super.postInit(scene);
     	
     	setShowCloseConfirmation(false);
     	

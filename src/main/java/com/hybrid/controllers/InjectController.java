@@ -40,9 +40,6 @@ public class InjectController {
     ResourceBundle resources;
     
     @Autowired
-    Service service;
-    
-    @Autowired
     ApplicationContext ctx;
     
     @Autowired
@@ -67,7 +64,6 @@ public class InjectController {
     		listResult.getItems().add("#####################################");
     		listResult.getItems().add("### " + tag);
     		listResult.getItems().add("#####################################");
-    		listResult.getItems().add("service.getText = " + (service != null ? service.getText() : null));
     		listResult.getItems().add("label.text = " + (resources != null ? resources.getString("label.text") : null));
     		listResult.getItems().add("Application ctx = " + ctx);
     		listResult.getItems().add("ResourceBundle = " + resources);
