@@ -28,6 +28,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ToolBar;
 
 public class InjectController {
@@ -36,6 +37,11 @@ public class InjectController {
 	Button btnSelect;
 	@FXML
 	ListView<String> listResult;
+	@FXML
+	ProgressBar progress;
+	@FXML
+	Button btnIncrement;
+	
     @FXML
     ResourceBundle resources;
     
@@ -57,6 +63,11 @@ public class InjectController {
     		addContent("btnSelect Clicked...");
 //    		listResult.setItems(items);
     	});
+    	
+    	btnIncrement.setOnAction(e -> {
+    		progress.setProgress(progress.getProgress() + 0.1);
+    	});
+    	
     	addContent("initialize()...");
     		
     }

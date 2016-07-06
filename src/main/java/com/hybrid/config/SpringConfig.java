@@ -1,10 +1,11 @@
-package com.hybrid;
+package com.hybrid.config;
 
 import org.controlsfx.control.StatusBar;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
 
+import com.gluonhq.ignite.spring.SpringContext;
 import com.gluonhq.particle.application.Particle;
 import com.gluonhq.particle.application.ParticleApplication;
 import com.gluonhq.particle.form.FormManager;
@@ -16,7 +17,8 @@ import javafx.scene.control.ToolBar;
 
 @Configuration
 @ImportResource({"classpath:SpringConfig.xml"} )
-class SpringConfig  {
+public class SpringConfig  {
+	static public SpringContext sprintCtx;
 	public SpringConfig() {
 		System.out.println("SpringConfig()...");
 	}

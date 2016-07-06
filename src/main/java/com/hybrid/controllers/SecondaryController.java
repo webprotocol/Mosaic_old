@@ -11,6 +11,7 @@ import javax.inject.Inject;
 import org.controlsfx.control.action.Action;
 import org.controlsfx.control.action.ActionMap;
 import org.controlsfx.control.action.ActionProxy;
+import org.springframework.context.ApplicationContext;
 
 public class SecondaryController {
 
@@ -25,14 +26,11 @@ public class SecondaryController {
     private ResourceBundle resources;
     
     @Inject
-    private Service service;
+    ApplicationContext ctx;
     
     private Action actionHome;
     
     public void initialize() {
-    	System.out.println("initialize()... " + service.getText());
-    	System.out.println("initialize()... " + app.getTitle());
-    	System.out.println("initialize()... " + viewManager);
     			
         ActionMap.register(this);
         actionHome =  ActionMap.action("goHome");
@@ -41,8 +39,8 @@ public class SecondaryController {
         button.setOnAction(e -> { 
         	viewManager.switchView("primary");
         	System.out.println("### Spring Injection");
-        	System.out.println(service.getText());
         });
+        System.out.println("SecondaryController.initialize()... " +  ctx);
     }
     
     public void postInit() {

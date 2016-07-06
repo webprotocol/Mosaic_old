@@ -4,7 +4,9 @@ import javafx.scene.Scene;
 
 import static org.controlsfx.control.action.ActionMap.actions;
 
-public class MainApplication extends SpringParticleApplication {
+import com.gluonhq.particle.application.ParticleApplication;
+
+public class MainApplication extends ParticleApplication {
 
     public MainApplication() {
         super("Mosaic Application");

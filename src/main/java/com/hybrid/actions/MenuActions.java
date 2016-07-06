@@ -3,7 +3,6 @@ package com.hybrid.actions;
 import com.gluonhq.particle.annotation.ParticleActions;
 import com.gluonhq.particle.application.ParticleApplication;
 import com.gluonhq.particle.view.ViewManager;
-import com.hybrid.SpringParticleApplication;
 
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
