@@ -24,6 +24,12 @@ public class SpringConfig  {
 	}
 	
 	@Bean
+	public SpringContext provideSpringContext() {
+		System.out.println("provideSpringContext()...");
+		return sprintCtx;
+	}
+	
+	@Bean
 	public Particle provideParticle() {
 		System.out.println("provideParticle()...");
 		return null;

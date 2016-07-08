@@ -49,8 +49,8 @@ public class PrimaryController {
     	 * Spring Init
     	 */
     	SpringContext sprintCtx = new SpringContext(this, () -> Arrays.asList(SpringConfig.class.getPackage().getName()));
-    	sprintCtx.init();
     	SpringConfig.sprintCtx = sprintCtx;
+    	sprintCtx.init();
     }
     
     public void initialize() {
@@ -59,9 +59,12 @@ public class PrimaryController {
         
         button.setOnAction(e -> { 
         	viewManager.switchView("secondary");
-        	AutoTest a = SpringConfig.sprintCtx.getInstance(AutoTest.class);
+//        	AutoTest a = SpringConfig.sprintCtx.getInstance(AutoTest.class);
 //        	AutoTest a = new AutoTest();
 //        	ctx.getAutowireCapableBeanFactory().autowireBean(a);
+        	
+        	SpringContext springCtx = ctx.getBean(SpringContext.class);
+        	AutoTest a = springCtx.getInstance(AutoTest.class);
         	
         	System.out.println("AutoTest a = " + a.ctx);
         
